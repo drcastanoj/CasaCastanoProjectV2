@@ -9,20 +9,8 @@ var tslint = require('../tslint.json');
 var directorio = path.resolve(__dirname, '../');
 
 module.exports = {
-  entry: {
-    'polyfills': './src/app/polyfills.ts',
-    'vendor': './src/app/vendor.ts',
-    'app': './src/app/main.ts'
-  },
 
-  resolve: {
-    extensions: ['.ts', '.js'],
-    modules: [path.resolve(__dirname, "../src/app"), 'src', "node_modules"],
-    alias: {
-      assets: directorio + '/src/app/assets'
-    }
-  },
-
+ 
   module: {
     rules: [
       {
@@ -49,9 +37,6 @@ module.exports = {
             loader: 'awesome-typescript-loader',
             options: {
               configFileName: helpers.root('./', 'tsconfig.json'),
-              alias: {
-                Indicadores: path.resolve(__dirname, '../')
-              }
             }
           }, 'angular2-template-loader'
         ]
@@ -63,28 +48,6 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         use: 'file-loader?name=assets/[name].[ext]'
-      },
-      {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader?sourceMap' })
-      },
-      {
-        test: /\.css$/,
-        include: helpers.root('src'),
-        loaders: ['style-loader', 'css-loader', 'resolve-url-loader']
-      },
-      // loader for angular components
-      {
-        test: /\.scss$/,
-        include: helpers.root('src', 'app'),
-        loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
-      },
-      // all sass imports in ts without angular components 
-      {
-        test: /\.(scss|sass)$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader', 'sass-loader'] })
       }
 
     ]
@@ -103,10 +66,6 @@ module.exports = {
       name: ['app', 'vendor', 'polyfills']
     }),
 
-    new HtmlWebpackPlugin({
-      template: './src/app/index.html',
-      chunksSortMode: 'dependency'
-    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [

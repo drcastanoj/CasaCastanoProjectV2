@@ -21,7 +21,8 @@
     "build:app": "webpack --config config/webpack.prod.js  --progress --profile --bail",
     "build::app:dev": "webpack --config config/webpack.prod.js -d --progress --profile --bail",
     "lint": "tslint \"src/**/*.ts\"",
-    "dev": "yarn start:dev && yarn start:app"
+    "dev": "yarn start:dev && yarn start:app",
+    "start:landing": "webpack-dev-server --config config/landing/webpack.landing.dev.js --inline -d --progress --port 5200 --open"
   },
   "dependencies": {
     "@nestjs/common": "^5.0.0",
