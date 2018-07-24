@@ -1,0 +1,86 @@
+<form name="hotelForm">
+  <div class="filter-mobile d-md-none" (click)="toggle.filters = !toggle.filters">
+    <div>
+      Filtrar
+      <span [ngClass]="{ 'arrow-up': toggle.filters, 'arrow-down': !toggle.filters } "></span>
+    </div>
+
+  </div>
+
+  <div class="filter-desktop d-none d-md-block">
+    <div>
+      Filtros
+    </div>
+  </div>
+  <div class="filter-name" *ngIf="toggle.filters">
+    <div (click)="toggle.hotelName = !toggle.hotelName ">
+      <i class="icon-search"></i>
+      <span class="title-name">Nombre Hotel </span>
+      <span [ngClass]="{ 'arrow-up': toggle.hotelName, 'arrow-down': !toggle.hotelName } "></span>
+    </div>
+    <div *ngIf="toggle.hotelName" class="name">
+      <input class="form-control" [(ngModel)]="nameHotel" name="nameHoltel" placeholder="Ingrese el nombre del hotel" />
+      <button (click)="filterHotels()"> Aceptar</button>
+    </div>
+  </div>
+
+  <div class="filter-stars" *ngIf="toggle.filters">
+    <div (click)="toggle.stars = !toggle.stars ">
+      <i class="icon-star"></i>
+      <span class="title-name"> Estrellas </span>
+      <span [ngClass]="{ 'arrow-up': toggle.stars, 'arrow-down': !toggle.stars } "></span>
+    </div>
+    <div *ngIf="toggle.stars" class="stars">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" [(ngModel)]="allStars" name="allStars" class="custom-control-input" (ngModelChange)="allStarsSelected()"
+          id="allStars">
+        <label class="custom-control-label" for="allStars">Todas las estrellas</label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" [(ngModel)]="filterStars[5]" name="star5" class="custom-control-input" (ngModelChange)="filterHotels()"
+          id="fiveStars">
+        <label class="custom-control-label" for="fiveStars">
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+        </label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [(ngModel)]="filterStars[4]" name="star4" (ngModelChange)="filterHotels()"
+          id="fourStars">
+        <label class="custom-control-label" for="fourStars">
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+        </label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [(ngModel)]="filterStars[3]" name="star3" (ngModelChange)="filterHotels()"
+          id="threeStars">
+        <label class="custom-control-label" for="threeStars">
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+        </label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [(ngModel)]="filterStars[2]" name="star2" (ngModelChange)="filterHotels()"
+          id="twoStars">
+        <label class="custom-control-label" for="twoStars">
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+        </label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [(ngModel)]="filterStars[1]" name="star1" (ngModelChange)="filterHotels()"
+          id="oneStart">
+        <label class="custom-control-label" for="oneStart">
+          <i class="icon-star"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,84 @@
+@import "~assets/styles/variables.scss";
+@import "~assets/styles/mixins.scss";
+.card-hotel {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: $white;
+    padding: 10px;
+    margin: 15px;
+    box-shadow: 2px 2px 2px $gray-shadow;
+    @media (min-width: $md) {
+        flex-direction: row;
+        margin: 0 0 20px;
+    }
+    >:first-child {
+        img {
+           width: 100%;
+           height: 100%;
+        }
+        @media (min-width: $md) {
+            width: 35%;
+        }
+    }
+    .description {
+        border-bottom: 1px dashed $gray-light;
+        padding: 20px 0;
+        h3 {
+            color: $blue-title;
+            @media (min-width: $md) {
+                font-size: 20px;
+            }
+        }
+        .calification {
+            color: $yellow-start;
+            font-size: 23px;
+            @media (min-width: $md) {
+                font-size: 15px;
+            }
+        }
+        .amenities {
+            color: $grey;
+            font-size: 30px;
+            @media (min-width: $md) {
+                font-size: 20px;
+            }
+        }
+        @media (min-width: $md) {
+            width: 40%;
+            border-right: 1px dashed $gray-light;
+            border-bottom: 0;
+            padding: 0;
+        }
+    }
+    .price {
+        margin: 20px 0 40px;
+        @include flexColumnCentered;
+        @media (min-width: $md) {
+            width: 20%;
+        }
+        .note {
+            color: $grey;
+            font-weight: 400;
+            text-align: center;
+        }
+        .value {
+            display: flex;
+            align-items: center;
+            color: $orange-price;
+            >:first-child {
+                font-weight: 600;
+                font-size: 25px;
+                margin: 0 5px;
+            }
+            >:last-child {
+                font-weight: 800;
+                font-size: 40px;
+            }
+        }
+        button {
+            width: 100%;
+            @include blueButton;
+        }
+    }
+}

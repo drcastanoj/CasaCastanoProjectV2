@@ -1,0 +1,10 @@
+<div class="row home">
+  <div class="col-md-3">
+    <app-filter-hotel (onFilter)="loadHotels($event)"></app-filter-hotel>
+  </div>
+  <div class="col-md-9">
+    <div>
+      <app-card-hotel *ngFor="let hotel of hotels"  [hotel]="hotel"></app-card-hotel>
+    </div>
+  </div>
+</div>

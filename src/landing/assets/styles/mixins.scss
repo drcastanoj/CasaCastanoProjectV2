@@ -1,0 +1,45 @@
+@import "~assets/styles/variables.scss";
+@mixin flexCentered {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@mixin flexCenteredSpaceAround {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+}
+
+@mixin flexCenteredSpaceBetween {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+@mixin flexColumnStart {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexColumnCentered {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexCenteredLeft {
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+}
+
+@mixin blueButton {
+    background-color: $blue-botton;
+    border-radius: 2px;
+    color: $white;
+    border: 1px solid $blue-botton;
+    padding: 5px 0px;
+}

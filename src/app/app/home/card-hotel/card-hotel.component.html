@@ -1,0 +1,28 @@
+<div class="card-hotel">
+  <div>
+    <img [src]="'assets/' + hotel.image ">
+  </div>
+  <div class="description">
+    <h3>
+      {{hotel.name}}
+    </h3>
+    <div class="calification">
+      <i  *ngFor="let star of stars" class="icon-star"></i>
+    </div>
+    <div class="amenities">
+      <i *ngFor="let amenity of hotel.amenities " class="icon-{{amenity}}"></i>
+    </div>
+  </div>
+  <div class="price">
+    <span class="note">
+    Precio por noche por habitación
+    </span>
+    <span class="value">
+      <span> ARS </span>  <span>{{ hotel.price | number: '3.0-0' | pointReplacer}}</span>
+    </span>
+    <button>
+      Ver hotel
+    </button>
+  </div>
+
+</div>
