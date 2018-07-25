@@ -1,17 +1,36 @@
 @import "~assets/styles/variables.scss";
-.header {
-    background-color: $blue-header;
+@import "~assets/styles/mixins.scss";
+header {
+    background-color: $white;
     width: 100%;
     top: 0;
     height: 9vh;
     display: flex;
     align-items: center;
     .logo {
-        height: 35px;
-        margin-left: 20px; // Small devices (landscape phones, 576px and up)
+        width: 20%;
+        img {
+            margin-left: 20px; // Small devices (landscape phones, 576px and up)
+            height: 65px;
+            @media (min-width: $md) {
+                height: 70px;
+                margin-left: 5px;
+            }
+        }
+    }
+    nav {
+        display: none;
         @media (min-width: $md) {
-            height: 47px;
-            margin-left: 5px;
+            width: 80%;
+            @include flexCentered;
+            font-family: $fontPlayFair;
+            div {
+                margin: 0 15px;
+                cursor: pointer;
+                &:hover {
+                    color: $yellow-start;
+                }
+            }
         }
     }
 }
